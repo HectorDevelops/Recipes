@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showing Recipe!</title>
+</head>
+<body>
+    <h1>Welcome, {{logged_user.first_name}}!</h1>
+    <h2>{{ this_recipe.name }}</h2>
+    <h5>Posted by: {{this_recipe.chef.first_name}} </h5>
+
+    <p>Description: {{ this_recipe.description }}</p>
+    <p>Under 30 minutes?
+    {% if this_recipe.under_thirty == 1 %}
+        Yes
+    {% else %}
+        No 
+    {% endif %}
+    </p>
+    <p>Instructions:{{this_recipe.instructions}} </p>
+    <p>Date Made: {{this_recipe.date}} </p>
+
+
+    <a href="/homepage">Back to Recipes</a>
+    <a href="/logout">logout</a>
+</body>
+</html>

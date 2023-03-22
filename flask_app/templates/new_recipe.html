@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a Bew Recipe!</title>
+</head>
+<body>
+    {% for message in get_flashed_messages() %}            <!-- loop through the messages -->
+        <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+    {% endfor %}
+
+    <h1>Add a New Recipe!</h1>
+    <form action="/recipes/create" method="POST">
+        <!-- Creating a hidden input so the submitted data can stored in our database -->
+        <input type="hidden" name="user_id" value="{{ session['user_id'] }}">
+        <div>
+            <label>Name</label>
+            <input name="name">
+        </div>
+        <div>
+            <label>Description</label>
+            <textarea name="description" name="" id="" cols="30" rows="4"></textarea>
+        </div>
+        <div>
+            <label>Instruction</label>
+            <textarea name="instructions" name="" id="" cols="30" rows="4"></textarea>
+        </div>
+        <div>
+            <label>Date Cooked/Made:</label>
+            <input name="date" type="date">
+        </div>
+        <div>
+            <label>Under 30 minutes?</label>
+            <input type="radio" name="under_thirty" value="1">Yes
+            <input type="radio" name="under_thirty" value="0">No
+        </div>
+        <button>Submit</button>
+    </form>
+
+
+</body>
+</html>
